@@ -94,6 +94,8 @@ class ProductReviewController extends AbstractController
                     $Disp = $app['eccube.repository.master.disp']
                         ->find(Disp::DISPLAY_HIDE);
 
+                    /* 画面から星をなくしたので、ここで上書き */
+                    $ProductReview->setRecommendLevel(-1);
                     $ProductReview->setStatus($Disp);
                     $ProductReview->setDelFlg(Constant::DISABLED);
                     $status = $app['product_review.repository.product_review']

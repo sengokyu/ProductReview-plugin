@@ -57,34 +57,6 @@ class ProductReviewType extends AbstractType
                     'maxlength' => $config['stext_len'],
                 ),
             ))
-            ->add('reviewer_url', 'text', array(
-                'label' => '投稿者URL',
-                'required' => false,
-                'constraints' => array(
-                    new Assert\Url(),
-                    new Assert\Length(array('max' => $config['mltext_len'])),
-                ),
-                'attr' => array(
-                    'maxlength' => $config['mltext_len'],
-                ),
-            ))
-            ->add('sex', 'sex', array(
-                'required' => false,
-            ))
-            ->add('recommend_level', 'choice', array(
-                'required' => true,
-                'label' => 'おすすめレベル',
-                'choices' => array(
-                    '5' => '★★★★★',
-                    '4' => '★★★★',
-                    '3' => '★★★',
-                    '2' => '★★',
-                    '1' => '★',
-                ),
-                'expanded' => true,
-                'multiple' => false,
-                'placeholder' => false,
-            ))
             ->add('title', 'text', array(
                 'label' => 'タイトル',
                 'required' => true,

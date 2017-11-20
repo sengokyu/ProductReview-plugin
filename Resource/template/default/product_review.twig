@@ -9,13 +9,6 @@
  */
 #}
 
-{# 星テキスト生成用マクロ #}
-{% macro stars(positive, negative) %}
-    {% set positive_stars = ["", "★", "★★", "★★★", "★★★★", "★★★★★"] %}
-    {% set negative_stars = ["", "☆", "☆☆", "☆☆☆", "☆☆☆☆", "☆☆☆☆☆"] %}
-    {{ positive_stars[positive] }}{{ negative_stars[negative] }}
-{% endmacro %}
-
 <style type="text/css">
     #product_review_area {
         border-top: 1px solid #E8E8E8;
@@ -110,15 +103,8 @@
     <div class="col-sm-10 col-sm-offset-1">
         <div class="accordion">
             <dl>
-                {% set positive_avg_star = avg %}
-                {% set nagative_avg_star = 5 - positive_avg_star %}
                 <dt class="heading02 sp">
-                    この商品のレビュー
-                    
-                    <!--平均の星の数-->
-                    <span class="recommend_average">
-                        {{ _self.stars(positive_avg_star, nagative_avg_star) }}
-                    </span>
+                    この商品のコメント
                     
                     <!--レビュー数-->
                     <span>
@@ -127,11 +113,10 @@
                     <svg class="cb cb-angle-down"><use xlink:href="#cb-angle-down" /></svg>
                 </dt>
                 <dt class="heading02 pc active">
-                    この商品のレビュー
-                    
-                    <!--平均の星の数-->
-                    <span class="recommend_average">
-                        {{ _self.stars(positive_avg_star, nagative_avg_star) }}
+                    この商品のコメント
+                    <!--レビュー数-->
+                    <span>
+                        ({{ number }})
                     </span>
                     
                     <svg class="cb cb-angle-down"><use xlink:href="#cb-angle-down" /></svg>
@@ -147,18 +132,7 @@
                                         
                                         <!--投稿者-->
                                         <span class="recommend_name">
-                                            {% if ProductReview.reviewer_url %}
-                                                <a href="{{ ProductReview.reviewer_url }}" target="_blank">{{ ProductReview.reviewer_name }}さん</a>
-                                            {% else %}
-                                                {{ ProductReview.reviewer_name }}さん
-                                            {% endif %}
-                                        </span>
-                                        
-                                        <!--星の数-->
-                                        {% set positive_star = ProductReview.recommend_level %}
-                                        {% set nagative_star = 5 - positive_star %}
-                                        <span class="recommend_level">
-                                            {{ _self.stars(positive_star, nagative_star) }}
+                                            {{ ProductReview.reviewer_name }}さん
                                         </span>
                                     </p>
                                     
@@ -175,7 +149,7 @@
             </dl>
         </div>
         <div class="review_btn">
-            <a href="{{ url('plugin_products_detail_review', {'id' : id}) }}" class="btn btn-info">レビューを書く</a>
+            <a href="{{ url('plugin_products_detail_review', {'id' : id}) }}" class="btn btn-info">コメントを書く</a>
         </div>
     </div>
 </div>
