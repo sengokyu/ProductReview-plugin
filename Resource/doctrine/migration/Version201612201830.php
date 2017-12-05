@@ -197,7 +197,7 @@ class Version201612201830 extends AbstractMigration
             ->setReferenceFieldName('reviewer_url')
             ->setDispName('投稿者URL')
             ->setRank($rank)
-            ->setEnableFlg(Constant::ENABLED);
+            ->setEnableFlg(Constant::DISABLED);
         $em->persist($Csv);
         $em->flush($Csv);
 
@@ -210,7 +210,7 @@ class Version201612201830 extends AbstractMigration
             ->setReferenceFieldName('name')
             ->setDispName('性別')
             ->setRank($rank)
-            ->setEnableFlg(Constant::ENABLED);
+            ->setEnableFlg(Constant::DISABLED);
         $em->persist($Csv);
         $em->flush($Csv);
 
@@ -223,7 +223,7 @@ class Version201612201830 extends AbstractMigration
             ->setReferenceFieldName('recommend_level')
             ->setDispName('おすすめレベル')
             ->setRank($rank)
-            ->setEnableFlg(Constant::ENABLED);
+            ->setEnableFlg(Constant::DISABLED);
         $em->persist($Csv);
         $em->flush($Csv);
 
