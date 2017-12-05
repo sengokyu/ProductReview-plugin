@@ -85,7 +85,7 @@ function fnChangeActionSubmit(action) {
         {{ form_widget(searchForm._token) }}
         <div class="row">
             <div class="col-md-12 accordion">
-                {{ form_widget(searchForm.multi, { attr: { placeholder: '投稿者名・投稿者URL', class : 'input_search' } } ) }}
+                {{ form_widget(searchForm.multi, { attr: { placeholder: '投稿者名', class : 'input_search' } } ) }}
                 <a class="toggle" href="#"><svg class="cb cb-minus"> <use xlink:href="#cb-minus"/></svg> <svg class="cb cb-minus"> <use xlink:href="#cb-minus"/></svg></a>
                 <div class="search-box-inner accpanel">
                     <div class="row">
@@ -98,14 +98,6 @@ function fnChangeActionSubmit(action) {
                                 <div class="col-xs-6">
                                     <label>{{ searchForm.product_code.vars.label }}</label>
                                     <div class="form-group">{{ form_widget(searchForm.product_code) }}</div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label>{{ searchForm.sex.vars.label }}</label>
-                                    <div class="form-group">{{ form_widget(searchForm.sex) }}</div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label>{{ searchForm.recommend_level.vars.label }}</label>
-                                    <div class="form-group">{{ form_widget(searchForm.recommend_level) }}</div>
                                 </div>
                             </div>
                             <div class="row">
@@ -179,7 +171,6 @@ function fnChangeActionSubmit(action) {
                                     <th>投稿者</th>
                                     <th>商品名</th>
                                     <th>タイトル</th>
-                                    <th>おすすめレベル</th>
                                     <th>公開・非公開</th>
                                     <th>&nbsp;</th>
                                 </tr>
@@ -191,7 +182,6 @@ function fnChangeActionSubmit(action) {
                                     <td>{{ Review.reviewer_name }}</td>
                                     <td>{{ Review.Product.name }}</td>
                                     <td><a href="{{ url('plugin_admin_product_review_edit', { id : Review.id }) }}">{{ Review.title }}</a></td>
-                                    <td>{% for i in 1..Review.recommend_level %}★{% endfor %}</td>
                                     <td>{{ Review.status }}</td>
                                     <td class="icon_edit">
                                         <div class="dropdown">

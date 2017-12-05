@@ -68,25 +68,6 @@ class ProductReviewSearchType extends AbstractType
                     new Assert\Length(array('max' => $config['stext_len'])),
                 ),
             ))
-            ->add('sex', 'sex', array(
-                'label' => '性別',
-                'required' => false,
-                'expanded' => true,
-                'multiple' => true,
-            ))
-            ->add('recommend_level', 'choice', array(
-                'label' => 'おすすめレベル',
-                'choices' => array(
-                    '5' => '★★★★★',
-                    '4' => '★★★★',
-                    '3' => '★★★',
-                    '2' => '★★',
-                    '1' => '★',
-                ),
-                'empty_value' => '選択してください',
-                'expanded' => false,
-                'multiple' => false,
-            ))
             ->add('review_start', 'birthday', array(
                 'label' => '投稿日',
                 'required' => false,
